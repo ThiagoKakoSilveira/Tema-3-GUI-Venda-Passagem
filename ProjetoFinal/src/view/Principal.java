@@ -149,6 +149,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void abrirJanelaVoo() {
         controllerV = new VooController();
+        controllerUI = new UIController();
         JanelaVoo jv = new JanelaVoo(controllerV);
         AreaDeTrabalho.add(jv);
         controllerUI.centerJIF(jv, AreaDeTrabalho);
@@ -184,6 +185,7 @@ public class Principal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Principal().setVisible(true);
             }

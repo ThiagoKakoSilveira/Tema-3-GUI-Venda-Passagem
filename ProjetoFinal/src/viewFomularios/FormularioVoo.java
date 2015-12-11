@@ -6,7 +6,6 @@ import controller.VooController;
 import java.text.ParseException;
 import java.util.Date;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -14,7 +13,7 @@ import model.Aviao;
 import model.Ponte_Aerea;
 import util.DateUtil;
 import servico.AviaoServico;
-import comboBoxModel.AviaoComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -64,10 +63,10 @@ public class FormularioVoo extends javax.swing.JPanel {
         jBVoltar = new javax.swing.JButton();
         jLabelID = new javax.swing.JLabel();
         jTID = new javax.swing.JTextField();
-        jTPonte = new javax.swing.JFormattedTextField();
         jLabelDataIdeal = new javax.swing.JLabel();
         jLabelDataIdeal1 = new javax.swing.JLabel();
         jComboBoxAviao = new javax.swing.JComboBox();
+        jComboBoxPonte = new javax.swing.JComboBox();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 30)); // NOI18N
         jLabel1.setText("Preencha os Dados do Voo");
@@ -79,9 +78,9 @@ public class FormularioVoo extends javax.swing.JPanel {
         jLabel3.setText("Ponte:");
 
         jLabel4.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
-        jLabel4.setText("Data partida:");
+        jLabel4.setText("Data da partida:");
 
-        jTData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat(""))));
+        jTData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("12/12/1984"))));
         jTData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTDataActionPerformed(evt);
@@ -89,7 +88,7 @@ public class FormularioVoo extends javax.swing.JPanel {
         });
 
         jLabel5.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
-        jLabel5.setText("Hora Partida");
+        jLabel5.setText("Hora da Partida");
 
         jTHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
@@ -130,6 +129,13 @@ public class FormularioVoo extends javax.swing.JPanel {
             }
         });
 
+        jComboBoxPonte.setModel(new comboBoxModel.PonteComboBoxModel());
+        jComboBoxPonte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPonteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,8 +160,8 @@ public class FormularioVoo extends javax.swing.JPanel {
                             .addComponent(jTHora, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                             .addComponent(jBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTPonte, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxAviao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBoxAviao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxPonte, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelDataIdeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -179,7 +185,7 @@ public class FormularioVoo extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTPonte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxPonte, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -190,7 +196,7 @@ public class FormularioVoo extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(jTHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDataIdeal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,12 +219,16 @@ public class FormularioVoo extends javax.swing.JPanel {
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         controller.voltarPrincipal();
     }//GEN-LAST:event_jBVoltarActionPerformed
+
+    private void jComboBoxPonteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPonteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxPonteActionPerformed
     public void cadastrarVoo() {
         //System.out.println("Selecione o Avião para realizar esse Vôo: ");
         //servicoA.mostrarAvioes();
         try {
-            Aviao teste = (Aviao)jComboBoxAviao.getSelectedItem();
-            int codigo = teste.getCodigo();
+            Aviao aviaoSelect = (Aviao)jComboBoxAviao.getSelectedItem();
+            int codigo = aviaoSelect.getCodigo();
             if (servicoA.aviaoExiste(codigo)) {
                 Aviao aviao = servicoA.entregaAviao(codigo);
                 Date horaDoVoo = null;
@@ -236,7 +246,8 @@ public class FormularioVoo extends javax.swing.JPanel {
                 //servicoV.mostrarPontes();
                 
                 try {
-                    int opPonte = Integer.parseInt(jTPonte.getText());
+                    Ponte_Aerea ponteSelect = (Ponte_Aerea) jComboBoxPonte.getSelectedItem();
+                    int opPonte = ponteSelect.getId();
                 if (servicoV.ponteExiste(opPonte)) {
                     Ponte_Aerea ponteSelecionada = servicoV.entregaPonte(opPonte);
                     servicoV.addVoo(new Voo(ponteSelecionada, horaDoVoo, aviao));
@@ -254,19 +265,22 @@ public class FormularioVoo extends javax.swing.JPanel {
         } catch (Exception e) {
             System.out.println("Coloque apenas dígito no código de avião");
         }
-
     }
     
-    public void carregaDados(int id, String aviaoNome, String origemNome, String destinoNome){   
+    public void carregaDados(int id, Aviao aviao, Ponte_Aerea ponte, Date dataHora){   
         this.jTID.setText(Integer.toString(id));
-        this.jTPonte.setText(aviaoNome);
-        this.jTPonte.setText(origemNome+"/"+destinoNome);        
+        this.jComboBoxAviao.setSelectedItem(aviao);
+        this.jComboBoxPonte.setSelectedItem(ponte);
+        this.jTData.setText(DateUtil.dateToString(dataHora));
+        this.jTHora.setText(DateUtil.getHourFromDateToString(dataHora));
     }
     
     public void limparCampos() {
         jTID.setText("");
-        jTPonte.setText("");
-        jTPonte.setText("");
+//        jComboBoxAviao.setSelectedIndex(0);
+//        jComboBoxPonte.setSelectedIndex(0);
+        jTData.setText("");
+        jTHora.setText("");
     }
 
     public JButton getjBCadastrar() {
@@ -277,7 +291,7 @@ public class FormularioVoo extends javax.swing.JPanel {
         return jBVoltar;
     }
 
-    public javax.swing.JComboBox getjComboBoxAviao() {
+    public JComboBox getjComboBoxAviao() {
         return jComboBoxAviao;
     }
 
@@ -293,14 +307,14 @@ public class FormularioVoo extends javax.swing.JPanel {
         return jTID;
     }
 
-    public JTextField getjTPonte() {
-        return jTPonte;
+    public JComboBox getjComboBoxPonte() {
+        return jComboBoxPonte;
     }
     
     public void habilitaEdicaoFormVoo(boolean valor) {
         this.jTID.setEditable(false);
         this.jComboBoxAviao.setEditable(valor);//depois mudar para fazer a ideia que eu tenho de não permitir e abrir uma tela que selecionará a informação dos campos
-        this.jTPonte.setEditable(valor);
+        this.jComboBoxPonte.setEditable(valor);
         this.jTData.setEditable(valor);
         this.jTHora.setEditable(valor);
     }
@@ -311,6 +325,7 @@ public class FormularioVoo extends javax.swing.JPanel {
     private javax.swing.JButton jBCadastrar;
     private javax.swing.JButton jBVoltar;
     private javax.swing.JComboBox jComboBoxAviao;
+    private javax.swing.JComboBox jComboBoxPonte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -322,7 +337,6 @@ public class FormularioVoo extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField jTData;
     private javax.swing.JFormattedTextField jTHora;
     private javax.swing.JTextField jTID;
-    private javax.swing.JFormattedTextField jTPonte;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -58,7 +58,7 @@ public class FormularioCliente extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(620, 407));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel4.setText("OBS:4 dígitos antes do hífem e 4 depois ");
+        jLabel4.setText("OBS:4 dígitos antes do hífen e 4 depois ");
 
         jbCadastrar.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         jbCadastrar.setText("Cadastrar");
@@ -135,7 +135,7 @@ public class FormularioCliente extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -37,8 +37,7 @@ public class Ponte_Aerea {
 
     @Override
     public String toString() {
-        String ponte = "ID: " + this.id + " \nCidade de Origem: " + this.origem.getNome() + " UF: " + this.origem.getUf() + " \nCidade de Destino: "
-                + this.destino.getNome() + " UF: " + destino.getUf();
+        String ponte = this.origem.getNome() + "  /  " + this.destino.getNome();
         return ponte;
     }
 }

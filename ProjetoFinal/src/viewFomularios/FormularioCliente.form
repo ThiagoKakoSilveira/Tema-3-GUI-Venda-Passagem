@@ -25,7 +25,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="76" max="32767" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelMensagem" min="-2" pref="434" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -112,7 +112,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="OBS:4 d&#xed;gitos antes do h&#xed;fem e 4 depois "/>
+        <Property name="text" type="java.lang.String" value="OBS:4 d&#xed;gitos antes do h&#xed;fen e 4 depois "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbCadastrar">

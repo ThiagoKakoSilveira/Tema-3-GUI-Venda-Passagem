@@ -39,8 +39,8 @@
                           <Component id="jTHora" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTID" alignment="0" pref="158" max="32767" attributes="0"/>
                           <Component id="jBVoltar" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="jTPonte" alignment="0" max="32767" attributes="0"/>
                           <Component id="jComboBoxAviao" max="32767" attributes="0"/>
+                          <Component id="jComboBoxPonte" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -72,7 +72,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTPonte" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxPonte" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -86,7 +86,7 @@
                   <Component id="jTHora" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelDataIdeal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBCadastrar" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jBVoltar" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
@@ -126,13 +126,13 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Console" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Data partida:"/>
+        <Property name="text" type="java.lang.String" value="Data da partida:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jTData">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format format="" subtype="-1" type="1"/>
+          <Format format="12/12/1984" subtype="-1" type="1"/>
         </Property>
       </Properties>
       <Events>
@@ -144,7 +144,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Console" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Hora Partida"/>
+        <Property name="text" type="java.lang.String" value="Hora da Partida"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jTHora">
@@ -192,8 +192,6 @@
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabelID.setVisible(false);&#xd;&#xa;jTID.setVisible(false);&#xd;&#xa;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jTPonte">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabelDataIdeal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -218,6 +216,16 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxAviaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxPonte">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new comboBoxModel.PonteComboBoxModel()" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxPonteActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

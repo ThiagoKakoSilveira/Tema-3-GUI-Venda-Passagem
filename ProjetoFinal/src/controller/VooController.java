@@ -10,6 +10,7 @@ import viewFomularios.FormularioVoo;
 import viewTabelas.TabelaVoo;
 import servico.VooServico;
 import view.JanelaVoo;
+import comboBoxModel.PonteComboBoxModel;
 
 /**
  *
@@ -65,6 +66,7 @@ public class VooController {
     public void voltarPrincipal() {
         telaAtual = TABELA;
         this.atualizaTabela();
+        this.atualizaComboBox();
         this.janela.mostrarPainel(JanelaVoo.PAINELTABELA);
     }
 
@@ -81,9 +83,12 @@ public class VooController {
     public void atualizaComboBox() {
         FormularioVoo painelFormulario = this.janela.getPainelFormulario();
         AviaoComboBoxModel modeloAviao = (AviaoComboBoxModel) painelFormulario.getjComboBoxAviao().getModel();
+        PonteComboBoxModel modeloPonte = (PonteComboBoxModel) painelFormulario.getjComboBoxPonte().getModel();
         
         modeloAviao.setAvioes(servicoA.listarAviao());
+        modeloPonte.setPonte(servicoV.listarPontes());
         
         painelFormulario.getjComboBoxAviao().updateUI();
+        painelFormulario.getjComboBoxPonte().updateUI();
     }    
 }
