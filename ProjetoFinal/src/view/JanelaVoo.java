@@ -1,6 +1,5 @@
 package view;
 import viewTabelas.TabelaVoo;
-import viewTabelas.TabelaAviao;
 import viewFomularios.FormularioVoo;
 import controller.VooController;
 import java.awt.CardLayout;
@@ -19,8 +18,10 @@ public class JanelaVoo extends javax.swing.JInternalFrame {
     private JPanel painelPrincipal;    
     private FormularioVoo painelFormulario;
     private TabelaVoo painelTabela;
+    
 //    private TabelaAviao painelSelectAviao; Acho q não vou precisar trazer o painel de Tabela do aviao e sim transformar a tabela do painel do Voo em uma tabela de avião atualizada
 //    private TabelaPonte painelSelectPonte;Acho q não vou precisar criar um painel de Tabela do ponte e sim transformar a tabela do painel do Voo em uma tabela de ponte atualizada
+    
     public JanelaVoo(VooController control) {
         this.controller = control;
         this.controller.setJanela(this);
@@ -45,7 +46,7 @@ public class JanelaVoo extends javax.swing.JInternalFrame {
     
         public void mostrarPainel(String painel) {
         CardLayout card = (CardLayout) (painelPrincipal.getLayout());
-        card.show(painelPrincipal, painel);
+        card.show(painelPrincipal, painel);        
     }
     
     public FormularioVoo getPainelFormulario() {
@@ -59,8 +60,4 @@ public class JanelaVoo extends javax.swing.JInternalFrame {
     public void setController(VooController controller) {
         this.controller = controller;
     }
-    
-    
-    
-    
 }

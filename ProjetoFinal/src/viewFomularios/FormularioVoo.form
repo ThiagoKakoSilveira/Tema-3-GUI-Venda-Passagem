@@ -37,18 +37,18 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jTData" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTHora" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTID" alignment="0" pref="158" max="32767" attributes="0"/>
+                          <Component id="jtID" alignment="0" pref="158" max="32767" attributes="0"/>
                           <Component id="jBVoltar" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
                           <Component id="jComboBoxAviao" max="32767" attributes="0"/>
                           <Component id="jComboBoxPonte" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelHoraIdeal" max="32767" attributes="0"/>
                           <Component id="jLabelDataIdeal" max="32767" attributes="0"/>
-                          <Component id="jLabelDataIdeal1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel1" min="-2" pref="388" max="-2" attributes="0"/>
+                  <Component id="jLabelMensagem" min="-2" pref="388" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -58,11 +58,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="jLabelMensagem" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -78,13 +78,13 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTData" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelDataIdeal1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDataIdeal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTHora" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelDataIdeal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHoraIdeal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -97,7 +97,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabelMensagem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="30" style="3"/>
@@ -132,7 +132,7 @@
     <Component class="javax.swing.JFormattedTextField" name="jTData">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format format="12/12/1984" subtype="-1" type="1"/>
+          <Format subtype="2" type="1"/>
         </Property>
       </Properties>
       <Events>
@@ -184,15 +184,15 @@
         <Property name="text" type="java.lang.String" value="ID:"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabelID.setVisible(false);&#xd;&#xa;jTID.setVisible(false);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabelID.setVisible(false);&#xd;&#xa;jtID.setVisible(false);&#xd;&#xa;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTID">
+    <Component class="javax.swing.JTextField" name="jtID">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabelID.setVisible(false);&#xd;&#xa;jTID.setVisible(false);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabelID.setVisible(false);&#xd;&#xa;jtID.setVisible(false);&#xd;&#xa;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDataIdeal">
+    <Component class="javax.swing.JLabel" name="jLabelHoraIdeal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="16" style="3"/>
@@ -200,7 +200,7 @@
         <Property name="text" type="java.lang.String" value="Formato indicado HH:MM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDataIdeal1">
+    <Component class="javax.swing.JLabel" name="jLabelDataIdeal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="16" style="3"/>

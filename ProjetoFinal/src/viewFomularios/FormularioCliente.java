@@ -201,7 +201,7 @@ public class FormularioCliente extends javax.swing.JPanel {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         if(jbCadastrar.getText().equalsIgnoreCase("Editar")){
             editarCliente();
-//            controller.voltarPrincipal();
+            controller.voltarPrincipal();
         }
         else{
             cadastrarCliente();

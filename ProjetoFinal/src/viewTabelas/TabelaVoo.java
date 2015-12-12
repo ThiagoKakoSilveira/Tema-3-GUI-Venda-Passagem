@@ -148,15 +148,15 @@ public class TabelaVoo extends javax.swing.JPanel {
     }//GEN-LAST:event_botaoInserirActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
-        //controller.editarVoo();
+        controller.editarVoo();
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
-        //controller.removerVoo();
+        controller.removerVoo();
     }//GEN-LAST:event_botaoRemoverActionPerformed
 
     private void botaoVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVisualizarActionPerformed
-//        controller.visualizarVoos();
+        controller.visualizarVoos();
     }//GEN-LAST:event_botaoVisualizarActionPerformed
 
 
