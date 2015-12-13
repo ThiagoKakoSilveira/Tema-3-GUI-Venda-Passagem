@@ -1,5 +1,5 @@
 package viewTabelas;
-//import controller.PassagemController;
+import controller.PassagemController;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -8,12 +8,40 @@ import javax.swing.JTable;
  * @author Thiago
  */
 public class TabelaPassagem extends javax.swing.JPanel {
+    
+    private PassagemController controller;
 
     /**
      * Creates new form TabelaPassagem
      */
-    public TabelaPassagem() {
+        
+    public TabelaPassagem(PassagemController control) {
+        this.controller = control;
         initComponents();
+    }
+
+    public PassagemController getController() {
+        return controller;
+    }
+
+    public void setController(PassagemController controller) {
+        this.controller = controller;
+    }
+
+    public JButton getJbSelecionar() {
+        return jbSelecionar;
+    }
+
+    public void setJbSelecionar(JButton jbSelecionar) {
+        this.jbSelecionar = jbSelecionar;
+    }
+
+    public JTable getTabela() {
+        return tabela;
+    }
+
+    public void setTabela(JTable tabela) {
+        this.tabela = tabela;
     }
 
     /**

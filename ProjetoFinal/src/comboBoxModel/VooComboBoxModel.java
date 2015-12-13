@@ -5,33 +5,49 @@
  */
 package comboBoxModel;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
+import model.Voo;
 
 /**
  *
  * @author Thiago
  */
 public class VooComboBoxModel extends AbstractListModel implements ComboBoxModel {
+    private List<Voo> voos;
+    private Voo selecionado = null;
+    
+    public VooComboBoxModel(List<Voo> v){
+        this.voos = v;
+    }
+    
+    public VooComboBoxModel(){
+        this.voos = new ArrayList<>();
+    }
 
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return voos.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return voos.get(index);
     }
 
     @Override
     public void setSelectedItem(Object anItem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        selecionado = (Voo) anItem;
     }
 
     @Override
     public Object getSelectedItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return selecionado;
     }
     
+    public void setVoos(List<Voo> v) {
+        this.voos = v;
+    }    
 }

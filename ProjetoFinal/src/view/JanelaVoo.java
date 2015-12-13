@@ -44,9 +44,9 @@ public class JanelaVoo extends javax.swing.JInternalFrame {
         this.setTitle("Menu Voo");
     }
     
-        public void mostrarPainel(String painel) {
-        CardLayout card = (CardLayout) (painelPrincipal.getLayout());
-        card.show(painelPrincipal, painel);        
+    public void mostrarPainel(String painel) {
+    CardLayout card = (CardLayout) (painelPrincipal.getLayout());
+    card.show(painelPrincipal, painel);        
     }
     
     public FormularioVoo getPainelFormulario() {

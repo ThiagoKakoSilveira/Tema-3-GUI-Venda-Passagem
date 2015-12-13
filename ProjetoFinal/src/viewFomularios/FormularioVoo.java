@@ -41,7 +41,7 @@ public class FormularioVoo extends javax.swing.JPanel {
     public FormularioVoo() {
         servicoV = new VooServico();
         controller = new VooController();
-
+        servicoA = new AviaoServico();
         initComponents();
     }
 
