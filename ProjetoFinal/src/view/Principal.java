@@ -18,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
     private AviaoController controllerA;
     private ClienteController controllerC;
     private VooController controllerV;
+    private PassagemController controllerP;
     private UIController controllerUI;
 
     /**
@@ -96,6 +97,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuPassagem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuPassagem.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         jMenuPassagem.setText("Menu Venda de Passagem");
+        jMenuPassagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPassagemActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuPassagem);
 
         jMenuBar1.add(jMenu1);
@@ -129,6 +135,10 @@ public class Principal extends javax.swing.JFrame {
         abrirJanelaVoo();
     }//GEN-LAST:event_jMenuVooActionPerformed
 
+    private void jMenuPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPassagemActionPerformed
+        abrirJanelaPassagem();
+    }//GEN-LAST:event_jMenuPassagemActionPerformed
+
     private void abrirJanelaAviao() {
         controllerA = new AviaoController();
         controllerUI = new UIController();
@@ -155,6 +165,17 @@ public class Principal extends javax.swing.JFrame {
         controllerUI.centerJIF(jv, AreaDeTrabalho);
         jv.setVisible(true);
     }
+    
+    private void abrirJanelaPassagem() {
+        controllerP = new PassagemController();
+        controllerUI = new UIController();
+        JanelaPassagem jp = new JanelaPassagem(controllerP);
+        AreaDeTrabalho.add(jp);
+        controllerUI.centerJIF(jp, AreaDeTrabalho);
+        jp.setVisible(true);
+    }
+
+    
 
     /**
      * @param args the command line arguments
@@ -202,4 +223,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuVoo;
     // End of variables declaration//GEN-END:variables
 
+    
 }

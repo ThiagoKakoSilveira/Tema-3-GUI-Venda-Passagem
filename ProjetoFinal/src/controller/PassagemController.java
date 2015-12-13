@@ -10,14 +10,15 @@ import servico.ClienteServico;
 import tableModels.PassagemTableModel;
 import viewFomularios.FormularioPassagem;
 import viewTabelas.TabelaPassagem;
-import servico.PassagemServico;
 import servico.VooServico;
+import servico.PassagemServico;
 import view.JanelaPassagem;
 /**
  *
  * @author Thiago
  */
 public class PassagemController {
+    
     private final static int TABELA = 0;
     private final static int FORMCADASTRO = 1;
     private final static int FORMEDICAO = 2;
@@ -31,6 +32,45 @@ public class PassagemController {
     private PassagemServico servicoP;
     private VooServico servicoV;
     private ClienteServico servicoC;
+    
+    public PassagemController() {
+        telaAtual = TABELA;
+        servicoV = new VooServico();
+        servicoP = new PassagemServico();
+        servicoC = new ClienteServico();
+    }
+    
+    public PassagemController(JanelaPassagem janela) {
+        this.telaAtual = TABELA;
+        this.servicoV = new VooServico();
+        this.servicoP = new PassagemServico();
+        this.servicoC = new ClienteServico();
+        this.janela = janela;
+    }
+    
+    public void inserirPassagem() {
+        FormularioPassagem painelForm = this.janela.getPainelFormulario();
+
+        painelForm.limparCampos();
+
+        //painelForm.getLabelPainelFormulario().setText("Cadastrar Paciente");
+        //painelForm.setTitle("Cadastrar Avião");        
+//        painelForm.getjTID().setEditable(false);
+//        painelForm.getjTCampoAviao().setEditable(false);
+//        painelForm.getjTPonte().setEditable(false);
+//        painelForm.getjComboBoxAviao().setModel(new AviaoComboBoxModel(servicoA.listarAviao()));
+        painelForm.getjLabelID().setVisible(false);
+        painelForm.getjTextFieldID().setVisible(false);
+        painelForm.getjBCadastrar().setVisible(true);
+        painelForm.getjBCadastrar().setText("Cadastrar");
+        painelForm.getjTextHoraAtual().setVisible(false);
+        painelForm.getjLabelHoraAtual().setVisible(false);
+        
+        painelForm.habilitaEdicaoFormPassagem(true);
+
+        telaAtual = FORMCADASTRO;
+        this.janela.mostrarPainel(JanelaPassagem.PAINELFORM);
+    }
 
     public void voltarPrincipal() {
         telaAtual = TABELA;

@@ -73,12 +73,9 @@ public class Voo {
      
     @Override
     public String toString() {
-        String horario = DateUtil.dateHourToString(this.horarioDoVoo);
-        String voo = "Vôo de código: " + this.codigo
-                + "\n Cidade Origem: " + this.ponte.getOrigem().getNome() + " UF: " + this.ponte.getOrigem().getUf()
-                + "\n Cidade Destino: " + this.ponte.getDestino().getNome() + " UF: " + this.ponte.getDestino().getUf()
-                + "\n Data/Hora de Partida: " + horario
-                + "\n No Avião de codigo: " + this.Aviao.getCodigo() + " Nome: " + this.Aviao.getNome();
-        return voo;
+        String data = DateUtil.dateToString(this.horarioDoVoo);
+        String hora = DateUtil.getHourFromDateToString(this.horarioDoVoo);
+        
+        return "Código: " + this.codigo;
     }
 }

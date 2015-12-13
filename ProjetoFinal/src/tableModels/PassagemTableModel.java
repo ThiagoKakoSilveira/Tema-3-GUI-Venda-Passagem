@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tableModels;
-
+import util.DateUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -24,7 +19,7 @@ public class PassagemTableModel extends AbstractTableModel{
     }
     
     public PassagemTableModel (){
-        cabecalho = new String[]{"Código", "Cliente", "Código de Voo", "Origem do Voo", "Destino do Voo", "Horário da Venda"};
+        cabecalho = new String[]{"Passagem", "Cliente", "Voo", "Origem do Voo", "Destino do Voo", "Horário da Venda"};
         passagens = new ArrayList<>();
     }
 
@@ -50,8 +45,10 @@ public class PassagemTableModel extends AbstractTableModel{
             return(passagens.get(rowIndex).getVoo().getOrigem());
         else if(columnIndex == 4)
             return (passagens.get(rowIndex).getVoo().getDestino());
-        else
-            return (passagens.get(rowIndex).getHoraVenda());
+        else{
+            String hora = DateUtil.dateHourToString(passagens.get(rowIndex).getHoraVenda());
+            return hora;
+        }
     }
     
     @Override

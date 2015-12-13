@@ -1,5 +1,4 @@
 package view;
-
 import viewTabelas.TabelaPassagem;
 import viewFomularios.FormularioPassagem;
 import controller.PassagemController;
@@ -43,7 +42,7 @@ public class JanelaPassagem extends javax.swing.JInternalFrame {
         painelPrincipal.add(painelFormulario, PAINELFORM);
         this.add(painelPrincipal);
         this.setClosable(true);
-        this.setTitle("Menu Voo");
+        this.setTitle("Menu Passagem");
     }
     
     public FormularioPassagem getPainelFormulario() {

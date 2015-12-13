@@ -37,7 +37,7 @@ public class Cidade {
 
     @Override
     public String toString() {
-        String cliente = "ID: " + this.id + "Nome: " + this.nome + "UF: " + this.uf;
+        String cliente = this.nome + "/" + this.uf;
         return cliente;
     }
 
