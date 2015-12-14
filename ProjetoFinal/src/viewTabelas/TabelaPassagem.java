@@ -155,7 +155,7 @@ public class TabelaPassagem extends javax.swing.JPanel {
     }//GEN-LAST:event_botaoRemoverActionPerformed
 
     private void botaoVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVisualizarActionPerformed
-//        controller.visualizarVoos();
+        controller.visualizarPassagem();
     }//GEN-LAST:event_botaoVisualizarActionPerformed
 
     private void botaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirActionPerformed

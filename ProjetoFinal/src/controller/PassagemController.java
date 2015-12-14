@@ -54,7 +54,8 @@ public class PassagemController {
         FormularioPassagem painelForm = this.janela.getPainelFormulario();
 
         painelForm.limparCampos();
-
+        
+        painelForm.getjLabelMensagem().setText("Preencha os Dados da Passagem");
         painelForm.getjLabelID().setVisible(false);
         painelForm.getjTextFieldID().setVisible(false);
         painelForm.getjBCadastrar().setVisible(true);
@@ -83,7 +84,7 @@ public class PassagemController {
         Passagem passagem = tableModel.getPassagem(linhaSelecionada);
         painelForm.carregaDados(passagem.getCodigo(), passagem.getCliente().getRG(), passagem.getVoo(), passagem.getHoraVenda());
 
-        painelForm.getjLabelMensagem().setText("Atualize os Dados do Voo");
+        painelForm.getjLabelMensagem().setText("Atualize os Dados da Passagem");
         painelForm.getjLabelID().setVisible(true);
         painelForm.getjTextFieldID().setVisible(true);
         painelForm.getjBCadastrar().setVisible(true);
@@ -96,6 +97,52 @@ public class PassagemController {
         telaAtual = FORMEDICAO;
         this.janela.getPainelFormulario().carregaText();
         this.janela.mostrarPainel(JanelaPassagem.PAINELFORM);
+    }
+    
+    public void visualizarPassagem() {
+        TabelaPassagem painelTabela = this.janela.getPainelTabela();
+        FormularioPassagem painelForm = this.janela.getPainelFormulario();
+        PassagemTableModel tableModel = (PassagemTableModel) painelTabela.getTabela().getModel();
+        
+        linhaSelecionada = painelTabela.getTabela().getSelectedRow();
+        if(linhaSelecionada < 0)
+        {
+            JOptionPane.showMessageDialog(janela, "Não há nenhum elemento selecionado na tabela");                    
+            return;
+        }
+        Passagem passagem = tableModel.getPassagem(linhaSelecionada);
+        painelForm.carregaDados(passagem.getCodigo(), passagem.getCliente().getRG(), passagem.getVoo(), passagem.getHoraVenda());
+
+        painelForm.getjLabelMensagem().setText("Dados da Passagem");
+        painelForm.getjLabelID().setVisible(true);
+        painelForm.getjTextFieldID().setVisible(true);
+        painelForm.getjBCadastrar().setVisible(false);
+        painelForm.getjBCadastrar().setText("");
+        painelForm.getjTextHoraAtual().setVisible(true);
+        painelForm.getjLabelHoraAtual().setVisible(true);
+        painelForm.getjLabelObservacao().setVisible(false);
+        painelForm.habilitaEdicaoFormPassagem(false);
+        UIController.makeComboReadonly(janela.getPainelFormulario().getjComboBoxVoo());
+
+        telaAtual = FORMEDICAO;
+        this.janela.getPainelFormulario().carregaText();
+        this.janela.mostrarPainel(JanelaPassagem.PAINELFORM);
+    }
+    
+    public void removerPassagem() {
+        TabelaPassagem painelTabela = this.janela.getPainelTabela();
+        PassagemTableModel tableModel = (PassagemTableModel) painelTabela.getTabela().getModel();
+        linhaSelecionada = painelTabela.getTabela().getSelectedRow();
+        if(linhaSelecionada < 0)
+        {
+            JOptionPane.showMessageDialog(janela,"Não há nenhum elemento selecionado na tabela");                    
+            return;
+        }
+        Passagem voo = tableModel.getPassagem(linhaSelecionada);        
+        servicoP.deletarPassagem(voo);
+        JOptionPane.showMessageDialog(janela,"Remoção realizada com sucesso!");
+        
+        this.atualizaTabela();
     }
 
     public void voltarPrincipal() {
@@ -125,40 +172,5 @@ public class PassagemController {
 
     public void setJanela(JanelaPassagem janela) {
         this.janela = janela;
-    }
-    
-    private void makeComboReadonly(JComboBox box) {
-        FormularioPassagem painelFormulario = this.janela.getPainelFormulario();
-        JComboBox boxMaquiado = box;        
-        boxMaquiado.getEditor().getEditorComponent();
-        Component editorComponent = boxMaquiado.getEditor().getEditorComponent();
-        if (editorComponent instanceof JComboBox) {
-            ((JComboBox) editorComponent).setEditable(false);
-        }
-
-        for (Component childComponent : boxMaquiado.getComponents()) {
-            if (childComponent instanceof AbstractButton) {
-                childComponent.setEnabled(false);
-                final MouseListener[] listeners = childComponent.getListeners(MouseListener.class);
-                for (MouseListener listener : listeners) {
-                    childComponent.removeMouseListener(listener);
-                }
-            }
-        }
-
-        final MouseListener[] mouseListeners = boxMaquiado.getListeners(MouseListener.class);
-        for (MouseListener listener : mouseListeners) {
-            boxMaquiado.removeMouseListener(listener);
-        }
-
-        final KeyListener[] keyListeners = boxMaquiado.getListeners(KeyListener.class);
-        for (KeyListener keyListener : keyListeners) {
-            boxMaquiado.removeKeyListener(keyListener);
-        }
-
-        boxMaquiado.setFocusable(false);
-        //box.getActionMap () clear ().; // nenhum efeito 
-        //box.getInputMap () clear         
-    }
-    
+    }    
 }
