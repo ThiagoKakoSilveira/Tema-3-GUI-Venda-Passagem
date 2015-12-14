@@ -19,7 +19,7 @@ public class PassagemTableModel extends AbstractTableModel{
     }
     
     public PassagemTableModel (){
-        cabecalho = new String[]{"Passagem", "Cliente", "Voo", "Origem do Voo", "Destino do Voo", "Horário da Venda"};
+        cabecalho = new String[]{"ID", "Cliente", "Voo", "Partida", "Origem", "Destino", "Venda"};
         passagens = new ArrayList<>();
     }
 
@@ -30,7 +30,7 @@ public class PassagemTableModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return (6);
+        return (7);
     }
 
     @Override
@@ -40,10 +40,14 @@ public class PassagemTableModel extends AbstractTableModel{
         else if(columnIndex == 1)
             return(passagens.get(rowIndex).getCliente().getNome());
         else if(columnIndex == 2)
-            return(passagens.get(rowIndex).getVoo().getCodigo());
-        else if(columnIndex == 3)
-            return(passagens.get(rowIndex).getVoo().getOrigem());
+            return(passagens.get(rowIndex).getVoo().getCodigo()); 
+        else if(columnIndex == 3){
+            String partida = DateUtil.dateHourToString((passagens.get(rowIndex)).getVoo().getHorarioDoVoo());
+            return partida;            
+        }
         else if(columnIndex == 4)
+            return (passagens.get(rowIndex).getVoo().getOrigem());
+        else if(columnIndex == 5)
             return (passagens.get(rowIndex).getVoo().getDestino());
         else{
             String hora = DateUtil.dateHourToString(passagens.get(rowIndex).getHoraVenda());

@@ -8,13 +8,8 @@ import viewTabelas.TabelaVoo;
 import servico.VooServico;
 import view.JanelaVoo;
 import comboBoxModel.PonteComboBoxModel;
-import java.awt.Component;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
-import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
 import model.Voo;
-import javax.swing.JComboBox;
 
 /**
  *
@@ -145,8 +140,8 @@ public class VooController {
         form.getjBCadastrar().setVisible(false);
         form.getjBCadastrar().setText("");
         form.habilitaEdicaoFormVoo(false);
-        makeComboReadonly(janela.getPainelFormulario().getjComboBoxAviao());
-        makeComboReadonly(janela.getPainelFormulario().getjComboBoxPonte());
+        UIController.makeComboReadonly(janela.getPainelFormulario().getjComboBoxAviao());
+        UIController.makeComboReadonly(janela.getPainelFormulario().getjComboBoxPonte());
 
         telaAtual = FORMVISUALIZACAO;
         this.janela.mostrarPainel(JanelaVoo.PAINELFORM);
@@ -179,39 +174,5 @@ public class VooController {
         
         painelFormulario.getjComboBoxAviao().updateUI();
         painelFormulario.getjComboBoxPonte().updateUI();
-    } 
-    
-    private void makeComboReadonly(JComboBox box) {
-        FormularioVoo painelFormulario = this.janela.getPainelFormulario();
-        JComboBox boxMaquiado = box;        
-        boxMaquiado.getEditor().getEditorComponent();
-        Component editorComponent = boxMaquiado.getEditor().getEditorComponent();
-        if (editorComponent instanceof JComboBox) {
-            ((JComboBox) editorComponent).setEditable(false);
-        }
-
-        for (Component childComponent : boxMaquiado.getComponents()) {
-            if (childComponent instanceof AbstractButton) {
-                childComponent.setEnabled(false);
-                final MouseListener[] listeners = childComponent.getListeners(MouseListener.class);
-                for (MouseListener listener : listeners) {
-                    childComponent.removeMouseListener(listener);
-                }
-            }
-        }
-
-        final MouseListener[] mouseListeners = boxMaquiado.getListeners(MouseListener.class);
-        for (MouseListener listener : mouseListeners) {
-            boxMaquiado.removeMouseListener(listener);
-        }
-
-        final KeyListener[] keyListeners = boxMaquiado.getListeners(KeyListener.class);
-        for (KeyListener keyListener : keyListeners) {
-            boxMaquiado.removeKeyListener(keyListener);
-        }
-
-        boxMaquiado.setFocusable(false);
-        //box.getActionMap () clear ().; // nenhum efeito 
-        //box.getInputMap () clear         
     }
 }

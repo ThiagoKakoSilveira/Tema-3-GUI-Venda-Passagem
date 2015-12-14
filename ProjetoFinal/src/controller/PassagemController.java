@@ -6,6 +6,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import javax.swing.AbstractButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import model.Passagem;
 import servico.ClienteServico;
 import tableModels.PassagemTableModel;
 import viewFomularios.FormularioPassagem;
@@ -53,22 +55,46 @@ public class PassagemController {
 
         painelForm.limparCampos();
 
-        //painelForm.getLabelPainelFormulario().setText("Cadastrar Paciente");
-        //painelForm.setTitle("Cadastrar Avião");        
-//        painelForm.getjTID().setEditable(false);
-//        painelForm.getjTCampoAviao().setEditable(false);
-//        painelForm.getjTPonte().setEditable(false);
-//        painelForm.getjComboBoxAviao().setModel(new AviaoComboBoxModel(servicoA.listarAviao()));
         painelForm.getjLabelID().setVisible(false);
         painelForm.getjTextFieldID().setVisible(false);
         painelForm.getjBCadastrar().setVisible(true);
         painelForm.getjBCadastrar().setText("Cadastrar");
         painelForm.getjTextHoraAtual().setVisible(false);
         painelForm.getjLabelHoraAtual().setVisible(false);
+        painelForm.getjLabelObservacao().setVisible(false);
         
         painelForm.habilitaEdicaoFormPassagem(true);
 
         telaAtual = FORMCADASTRO;
+        this.janela.mostrarPainel(JanelaPassagem.PAINELFORM);
+    }
+    
+    public void editarPassagem() {
+        TabelaPassagem painelTabela = this.janela.getPainelTabela();
+        FormularioPassagem painelForm = this.janela.getPainelFormulario();
+        PassagemTableModel tableModel = (PassagemTableModel) painelTabela.getTabela().getModel();
+        
+        linhaSelecionada = painelTabela.getTabela().getSelectedRow();
+        if(linhaSelecionada < 0)
+        {
+            JOptionPane.showMessageDialog(janela, "Não há nenhum elemento selecionado na tabela");                    
+            return;
+        }
+        Passagem passagem = tableModel.getPassagem(linhaSelecionada);
+        painelForm.carregaDados(passagem.getCodigo(), passagem.getCliente().getRG(), passagem.getVoo(), passagem.getHoraVenda());
+
+        painelForm.getjLabelMensagem().setText("Atualize os Dados do Voo");
+        painelForm.getjLabelID().setVisible(true);
+        painelForm.getjTextFieldID().setVisible(true);
+        painelForm.getjBCadastrar().setVisible(true);
+        painelForm.getjBCadastrar().setText("Editar");
+        painelForm.getjTextHoraAtual().setVisible(true);
+        painelForm.getjLabelHoraAtual().setVisible(true);
+        painelForm.getjLabelObservacao().setVisible(true);
+        painelForm.habilitaEdicaoFormPassagem(true);
+
+        telaAtual = FORMEDICAO;
+        this.janela.getPainelFormulario().carregaText();
         this.janela.mostrarPainel(JanelaPassagem.PAINELFORM);
     }
 

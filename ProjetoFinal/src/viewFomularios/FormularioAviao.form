@@ -99,7 +99,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Escreva apenas o nome, o c&#xf3;digo ser&#xe1; gerado automaticamente"/>
+        <Property name="text" type="java.lang.String" value="Escreva o NOME do Avi&#xe3;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botaoVoltar">

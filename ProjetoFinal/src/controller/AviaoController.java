@@ -41,6 +41,7 @@ public class AviaoController {
 
         //painelForm.getLabelPainelFormulario().setText("Cadastrar Paciente");
         //painelForm.setTitle("Cadastrar Avião");
+        painelForm.getjLabelMensagem().setText("Escreva o NOME do Avião");
         painelForm.getJtCod().setVisible(false);
         painelForm.getJlabelCod().setVisible(false);
         painelForm.getJbCadastrar().setVisible(true);
@@ -67,7 +68,7 @@ public class AviaoController {
 
         //painelForm.getLabelPainelFormulario().setText("Editar Paciente");
         //painelForm.setTitle("Editar Avião");
-        painelForm.getjLabelMensagem().setText("O Campo Código não pode ser alterado!!!");
+        painelForm.getjLabelMensagem().setText("Atualize o NOME do Avião");
         painelForm.getJlabelCod().setVisible(true);
         painelForm.getJtCod().setVisible(true);
         painelForm.getJbCadastrar().setVisible(true);

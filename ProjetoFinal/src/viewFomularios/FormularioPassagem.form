@@ -41,17 +41,21 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextDestino" pref="213" max="32767" attributes="0"/>
-                              <Component id="jTextFieldID" min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="jTextRG" max="32767" attributes="0"/>
-                              <Component id="jTextOrigem" max="32767" attributes="0"/>
-                              <Component id="jTextDataHora" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextHoraAtual" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextDestino" pref="213" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldID" min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Component id="jTextRG" max="32767" attributes="0"/>
+                                  <Component id="jTextOrigem" max="32767" attributes="0"/>
+                                  <Component id="jTextDataHora" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextHoraAtual" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabelObservacao" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jComboBoxVoo" min="-2" pref="213" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabelMensagem" min="-2" pref="478" max="-2" attributes="0"/>
@@ -117,13 +121,13 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelHoraAtual" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextHoraAtual" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelObservacao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jBVoltar" max="32767" attributes="0"/>
                   <Component id="jBCadastrar" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -236,6 +240,9 @@
           <Dimension value="[131, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBVoltarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelHoraAtual">
       <Properties>
@@ -246,6 +253,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextHoraAtual">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelID">
       <Properties>
@@ -258,6 +268,14 @@
     <Component class="javax.swing.JTextField" name="jTextFieldID">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelObservacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="18" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Obs:Hora gerada do sistema"/>
       </Properties>
     </Component>
   </SubComponents>

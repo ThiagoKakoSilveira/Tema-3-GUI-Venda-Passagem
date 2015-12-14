@@ -47,6 +47,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuPassagem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tema 3 Venda de Passagem Aérea");
+        setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
 
         javax.swing.GroupLayout AreaDeTrabalhoLayout = new javax.swing.GroupLayout(AreaDeTrabalho);
         AreaDeTrabalho.setLayout(AreaDeTrabalhoLayout);

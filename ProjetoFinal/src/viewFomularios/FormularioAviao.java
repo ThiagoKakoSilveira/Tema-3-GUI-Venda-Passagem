@@ -83,7 +83,7 @@ public class FormularioAviao extends javax.swing.JPanel {
         jlabelCod.setText("Código:");
 
         jLabelMensagem.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabelMensagem.setText("Escreva apenas o nome, o código será gerado automaticamente");
+        jLabelMensagem.setText("Escreva o NOME do Avião");
 
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {

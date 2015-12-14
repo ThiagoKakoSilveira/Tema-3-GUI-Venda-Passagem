@@ -16,7 +16,6 @@ import javax.swing.JLabel;
 import model.Cliente;
 import model.Passagem;
 import servico.PassagemServico;
-import util.Console;
 
 /**
  *
@@ -75,6 +74,7 @@ public class FormularioPassagem extends javax.swing.JPanel {
         jTextHoraAtual = new javax.swing.JTextField();
         jLabelID = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
+        jLabelObservacao = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(127, 0));
 
@@ -123,14 +123,24 @@ public class FormularioPassagem extends javax.swing.JPanel {
         jBVoltar.setMaximumSize(new java.awt.Dimension(131, 25));
         jBVoltar.setMinimumSize(new java.awt.Dimension(131, 25));
         jBVoltar.setPreferredSize(new java.awt.Dimension(131, 25));
+        jBVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBVoltarActionPerformed(evt);
+            }
+        });
 
         jLabelHoraAtual.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         jLabelHoraAtual.setText("Horário da Compra");
+
+        jTextHoraAtual.setEditable(false);
 
         jLabelID.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         jLabelID.setText("ID:");
 
         jTextFieldID.setEditable(false);
+
+        jLabelObservacao.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jLabelObservacao.setText("Obs:Hora gerada do sistema");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,15 +163,18 @@ public class FormularioPassagem extends javax.swing.JPanel {
                             .addComponent(jLabelHoraAtual, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextDestino, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                                .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextRG)
-                                .addComponent(jTextOrigem)
-                                .addComponent(jTextDataHora)
-                                .addComponent(jTextHoraAtual))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextDestino, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextRG)
+                                    .addComponent(jTextOrigem)
+                                    .addComponent(jTextDataHora)
+                                    .addComponent(jTextHoraAtual))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelObservacao))
                             .addComponent(jComboBoxVoo, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 4, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110))))
@@ -211,36 +224,54 @@ public class FormularioPassagem extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelHoraAtual)
-                    .addComponent(jTextHoraAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextHoraAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelObservacao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         if (getjBCadastrar().getText().equalsIgnoreCase("Editar")) {
-            editarVoo();
+            editarPassagem();
             controller.voltarPrincipal();
         } else {
-            cadastrarVoo();
+            cadastrarPassagem();
             controller.voltarPrincipal();
         }
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
     private void jComboBoxVooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVooActionPerformed
-        
         if(jComboBoxVoo.getSelectedIndex() > - 1){
             carregaText();                    
         }
     }//GEN-LAST:event_jComboBoxVooActionPerformed
-    private void editarVoo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
+        controller.voltarPrincipal();
+    }//GEN-LAST:event_jBVoltarActionPerformed
+    private void editarPassagem() {
+        String rgComprador = jTextRG.getText();         
+        if (servicoC.clienteExiste(rgComprador)) {
+            Cliente comprador = servicoC.devolveCliente(rgComprador);
+//            System.out.println("Cliente selecionado com sucesso...");
+            Voo vooSelect = (Voo) jComboBoxVoo.getSelectedItem();
+            int idVoo = vooSelect.getCodigo();
+            if (servicoV.vooExiste(idVoo)) {
+                Voo vooSel = servicoV.entregaVoo(idVoo);
+                Date atual = new Date();
+                int idPassagem = Integer.parseInt(jTextFieldID.getText());
+                servicoP.atualizaPassagem(new Passagem(idPassagem, comprador, vooSel, atual));
+                JOptionPane.showMessageDialog(this, "Venda atualizada com sucesso...");
+            } else {
+                JOptionPane.showMessageDialog(this, "Voo não encontrado!!!", "Erro: Ao selecionar o Voo", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
-    private void cadastrarVoo() {
+    private void cadastrarPassagem() {
         String rgComprador = jTextRG.getText();
         Cliente comprador = null;
         if (servicoC.clienteExiste(rgComprador)) {
@@ -286,11 +317,9 @@ public class FormularioPassagem extends javax.swing.JPanel {
     public void habilitaEdicaoFormPassagem(boolean valor) {
         this.jTextRG.setEditable(valor);
         //depois conferir como estou fazendo as anulações do ComboBox
-        this.jTextHoraAtual.setEditable(valor);
+        this.jTextHoraAtual.setEditable(false);
     }
     
-    
-
     public void limparCampos() {
         jTextFieldID.setText("");
         jComboBoxVoo.setSelectedIndex(-1);
@@ -309,12 +338,19 @@ public class FormularioPassagem extends javax.swing.JPanel {
         return jTextFieldID;
     }
     
-    private void carregaText() {
+    public void carregaText() {
         Voo voo = (Voo)jComboBoxVoo.getSelectedItem();
         String h = DateUtil.dateHourToString(voo.getHorarioDoVoo());
         jTextDestino.setText(voo.getDestino().getNome());
         jTextOrigem.setText(voo.getOrigem().getNome());
         jTextDataHora.setText(h);        
+    }
+    
+    public void carregaDados(int id, String rg, Voo voo, Date horaAtual) {
+        this.jTextFieldID.setText(Integer.toString(id));
+        this.jTextRG.setText(rg);  
+        this.jComboBoxVoo.getModel().setSelectedItem(voo);
+        this.jTextHoraAtual.setText(DateUtil.dateHourToString(horaAtual));        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCadastrar;
@@ -328,6 +364,7 @@ public class FormularioPassagem extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelHoraAtual;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelMensagem;
+    private javax.swing.JLabel jLabelObservacao;
     private javax.swing.JLabel jLabelRG;
     private javax.swing.JTextField jTextDataHora;
     private javax.swing.JTextField jTextDestino;
@@ -345,4 +382,7 @@ public class FormularioPassagem extends javax.swing.JPanel {
         return jTextHoraAtual;
     }
 
+    public JLabel getjLabelObservacao() {
+        return jLabelObservacao;
+    }
 }

@@ -41,6 +41,7 @@ public class ClienteController {
 
         //painelForm.getLabelPainelFormulario().setText("Cadastrar Paciente");
         //painelForm.setTitle("Cadastrar Avião");        
+        painelForm.getjLabelMensagem().setText("Preencha os Dados do Cliente");
         painelForm.getJtID().setVisible(false);
         painelForm.getjLabelID().setVisible(false);
         painelForm.getjLabelObservacao().setVisible(false);
