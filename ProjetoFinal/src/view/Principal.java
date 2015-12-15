@@ -19,7 +19,6 @@ public class Principal extends javax.swing.JFrame {
     private ClienteController controllerC;
     private VooController controllerV;
     private PassagemController controllerP;
-    private UIController controllerUI;
 
     /**
      * Creates new form Principal
@@ -45,6 +44,13 @@ public class Principal extends javax.swing.JFrame {
         jMenuCliente = new javax.swing.JMenuItem();
         jMenuVoo = new javax.swing.JMenuItem();
         jMenuPassagem = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tema 3 Venda de Passagem Aérea");
@@ -106,6 +112,41 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuPassagem);
 
+        jMenu2.setText("Menu Relatório");
+        jMenu2.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("por Cliente");
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("por Origem");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("por Destino");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setText("por Código de Voo");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setText("por Período de Voo");
+        jMenu2.add(jMenuItem6);
+
+        jMenu1.add(jMenu2);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem2.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        jMenuItem2.setText("Sair");
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -141,39 +182,39 @@ public class Principal extends javax.swing.JFrame {
         abrirJanelaPassagem();
     }//GEN-LAST:event_jMenuPassagemActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     private void abrirJanelaAviao() {
         controllerA = new AviaoController();
-        controllerUI = new UIController();
         JanelaAviao ja = new JanelaAviao(controllerA);        
         AreaDeTrabalho.add(ja);
-        controllerUI.centerJIF(ja, AreaDeTrabalho);
+        UIController.centerJIF(ja, AreaDeTrabalho);
         ja.setVisible(true);
     }
 
     private void abrirJanelaCliente() {
         controllerC = new ClienteController();
-        controllerUI = new UIController();
         JanelaCliente jc = new JanelaCliente(controllerC);
         AreaDeTrabalho.add(jc);
-        controllerUI.centerJIF(jc, AreaDeTrabalho);
+        UIController.centerJIF(jc, AreaDeTrabalho);
         jc.setVisible(true);
     }
 
     private void abrirJanelaVoo() {
         controllerV = new VooController();
-        controllerUI = new UIController();
         JanelaVoo jv = new JanelaVoo(controllerV);
         AreaDeTrabalho.add(jv);
-        controllerUI.centerJIF(jv, AreaDeTrabalho);
+        UIController.centerJIF(jv, AreaDeTrabalho);
         jv.setVisible(true);
     }
     
     private void abrirJanelaPassagem() {
         controllerP = new PassagemController();
-        controllerUI = new UIController();
         JanelaPassagem jp = new JanelaPassagem(controllerP);
         AreaDeTrabalho.add(jp);
-        controllerUI.centerJIF(jp, AreaDeTrabalho);
+        UIController.centerJIF(jp, AreaDeTrabalho);
         jp.setVisible(true);
     }
 
@@ -218,12 +259,23 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane AreaDeTrabalho;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuAviao;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuCliente;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuPassagem;
     private javax.swing.JMenuItem jMenuVoo;
     // End of variables declaration//GEN-END:variables
+
+    private void abrirJanelaRelatorio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

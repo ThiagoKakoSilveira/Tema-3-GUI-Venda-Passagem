@@ -238,8 +238,7 @@ public class FormularioPassagem extends javax.swing.JPanel {
             editarPassagem();
             controller.voltarPrincipal();
         } else {
-            cadastrarPassagem();
-            controller.voltarPrincipal();
+            cadastrarPassagem();            
         }
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
@@ -269,6 +268,8 @@ public class FormularioPassagem extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Voo não encontrado!!!", "Erro: Ao selecionar o Voo", JOptionPane.ERROR_MESSAGE);
             }
         }
+        else
+            JOptionPane.showMessageDialog(this, "Cliente não encontrado!!!", "Erro: Ao selecionar o Cliente", JOptionPane.ERROR_MESSAGE);            
     }
 
     private void cadastrarPassagem() {
@@ -288,6 +289,8 @@ public class FormularioPassagem extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Voo não encontrado!!!", "Erro: Ao selecionar o Voo", JOptionPane.ERROR_MESSAGE);
             }
         }
+        else
+            JOptionPane.showMessageDialog(this, "Cliente não encontrado!!!", "Erro: Ao selecionar o Cliente", JOptionPane.ERROR_MESSAGE);            
     }
 
     public JButton getjBCadastrar() {

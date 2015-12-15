@@ -8,7 +8,6 @@ import javax.swing.AbstractButton;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
-import viewFomularios.FormularioVoo;
 
 /**
  *
@@ -16,7 +15,7 @@ import viewFomularios.FormularioVoo;
  */
 public class UIController {
     
-    public void centerJIF(JInternalFrame jif, JDesktopPane jdp) {
+    public static void centerJIF(JInternalFrame jif, JDesktopPane jdp) {
         Dimension desktopSize = jdp.getSize();
         Dimension jInternalFrameSize = jif.getSize();
         int width = (desktopSize.width - jInternalFrameSize.width) / 2;

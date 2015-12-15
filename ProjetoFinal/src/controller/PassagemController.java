@@ -1,11 +1,6 @@
 package controller;
 
 import comboBoxModel.VooComboBoxModel;
-import java.awt.Component;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
-import javax.swing.AbstractButton;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import model.Passagem;
 import servico.ClienteServico;
